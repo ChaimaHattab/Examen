@@ -1,0 +1,31 @@
+<html>
+    <body>
+        <h1>Liste des Livres ({{livres.length}})</h1>
+
+        <table *ngIf="livres.length" datatable class="table table-hover table-striped table-bordered mb-5">
+        <thead>
+            <tr>
+                <th>Couverture</th>
+                <th>ISBN</th>
+                <th>Titre</th>
+                <th>Auteur</th>
+                <th>Nbre Exemplaires</th>
+                <th>Supprimer</th>  
+            </tr>
+         
+        </thead>
+        <tbody>
+            <!--Parcours du tableau livres pour afficher la liste des livres-->
+            <tr *ngFor="let lr of livres">
+                <td>{{lr.isbn}}</td>
+                <td>{{lr.titre}}</td>
+                <td>{{lr.auteur}}</td>
+                <td>{{lr.nbrExemplaireDispo}}</td>
+                <td><img src={{lr.couverture}} width="80" height="80"/></td>
+                <!--button supprimer-->
+                <td><button class="btn btn-danger" (click)="deleteLivre(lr._id)">Supprimer</button></td>
+            </tr>
+        </tbody>
+     </table>
+    </body>
+    </html>
